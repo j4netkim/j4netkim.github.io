@@ -1,11 +1,11 @@
 # Site settings
-author: J K
-title: 
+author: Janet 
+title: Software Engineering 
 header-img: img/home-bg.png
 email: kj688895@gmail.com
-copyright_name: J K
+copyright_name: Janet 
 description: > # this means to ignore newlines until "baseurl:"
-  
+  FT 
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  j4netkim
