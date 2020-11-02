@@ -1,9 +1,9 @@
 # Site settings
-author: Janet 
+author: JK
 title: Software Engineering 
 header-img: img/home-bg.png
-email: kj688895@gmail.com
-copyright_name: Janet 
+email: jkim65@buffalo.edu
+copyright_name: JK
 description: > # this means to ignore newlines until "baseurl:"
   FT 
 baseurl: "" # the subpath of your site, e.g. /blog
