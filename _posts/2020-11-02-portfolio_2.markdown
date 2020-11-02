@@ -1,0 +1,31 @@
+---
+layout: post
+title:      "portfolio 2"
+date:       2020-11-02 21:06:16 +0000
+permalink:  portfolio_2
+---
+
+
+I was able to get through the second project by first writing down a procedure I wanted to follow. Kind of like a framework so I wasn't completely lost as to where I was going. I would recommend using 'gem install corneal' to start your new project. It'll save you lots of time, where you don't have to manually create a lot of your files! All you have to do is 'corneal new' in your console to get that project going. Just like the first project, you learn a lot through the second one by reviewing what you've been learning so far. As we learned, activerecord needs to talk to your database and so make sure to use rake, and create your tables so that you can migrate them. We utilized rake db:create_migration NAME=create_forexampleflowers. This will create a new file in your db/migrate folder. It looks something like this: ![](https://i.stack.imgur.com/itu1z.png)
+
+I made the mistake of forgetting to run rake db:migrate after filling out the tables you created so make sure to migrate them! It really helps to check your schema throughout the process. Once you've decided on the models you want to create in your app/models folder, you should have corresponding controllers for them. All of these controllers should be inheriting from your ApplicationsController who inherits from 'class ApplicationController < Sinatra::Base'. You can tie it all in now in your config.ru file where you'll be typing 'use thenameofyourController' above the 'run ApplicationController'. Next, add your views folders. Remember that they're the information being presented to the user. These are going to be your .erb files that include html. Some examples of these files are new.erb, index.erb, edit.erb and show.erb. You may want to include these in your own project. 
+
+Here are some points that helped me out. In order to use patch in your controllers, you have to 'use Rack::Methodoverride'. This means you're going to override a post request and use it for the patch. Rack::Methodoverride looks for underbar method in params and realizes its not really a post and figures it out by looking at the value. Aside from that, you should be using instance variables which allows you to bypass scope between the various methods in the class. So by creating one in a controller method (route) lets the contents become visible to the erb file to which it renders. 
+
+As for sessions, if there's a user stored in the session hash it means the user is logged in. This should be in your ApplicationController to get access to the sessions hash. Include 'enable sessions' and 'set :session_secret, 'whateveryouwant'. The moment of login is when you add the user's id into the session hash. The gem that works with activerecord for a secure password is bcrypt which 'salts' and hashes the password. Now you're able to add 'has_secure_password' to your models to tell them it has a secure password. Go to the migrate file for the model you added 'has_secure_password' and add something like 't.string :password_digest'. 
+
+class CreateUsers < ActiveRecord::Migration
+    def change
+		    create_table :users do |t|
+				   t.string :name
+					 t.text :email
+					 t.string :password_digest
+					 end
+			end
+end
+
+That's an example of how it would look like. 
+Make sure you've added 'use SessionsController' to your config.ru file as well. 
+Overall, there's going to be a lot of going back and forth from your files. Specifically the controllers and the views. Thinking about the models as cooks, views as customers, and controllers as the waiters were really help if you get jumbled up. You have to keep in mind that in order to connect your form to your app., you needto give explicit directions on where and how to send the data from the user. (So don't forget that method="" and action="" in your form tags!) 
+
+
