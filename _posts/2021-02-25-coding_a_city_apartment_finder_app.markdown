@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "coding a city apartment finder app."
-date:       2021-02-26 01:35:25 +0000
+date:       2021-02-25 20:35:25 -0500
 permalink:  coding_a_city_apartment_finder_app
 ---
 
